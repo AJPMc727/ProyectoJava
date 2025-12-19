@@ -2,6 +2,7 @@ package graficos;
 
 import java.awt.Toolkit;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import java.awt.*;
@@ -36,7 +37,7 @@ class MarcoCentrado extends JFrame{
 		
 		setTitle("UHC Beta");
 		
-		Image miIcono=miPantalla.getImage("src/graficos/UHCBeta.png");
+		Image miIcono=new ImageIcon(getClass().getResource("/graficos/UHCBeta.png")).getImage();
 		
 		setIconImage(miIcono);
 	}
