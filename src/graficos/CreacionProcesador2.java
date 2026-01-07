@@ -78,6 +78,22 @@ class LaminaProcesador2 extends JPanel{
 		texto=new JTextPane();
 		
 		add(texto, BorderLayout.CENTER);
+		
+		JPopupMenu menuEmergente=new JPopupMenu();
+		
+		JMenuItem negritaE=new JMenuItem("Negrita");
+		
+		negritaE.addActionListener(new StyledEditorKit.BoldAction());
+		
+		JMenuItem cursivaE=new JMenuItem("Cursiva");
+		
+		cursivaE.addActionListener(new StyledEditorKit.ItalicAction());
+		
+		menuEmergente.add(negritaE);
+		
+		menuEmergente.add(cursivaE);
+		
+		texto.setComponentPopupMenu(menuEmergente);
 	}
 	
 	public void setMenuItem(String nombre, JMenu menu, String textoTipo, int textoEstilo, int textoTamagno) {
@@ -94,8 +110,12 @@ class LaminaProcesador2 extends JPanel{
 			
 			if(textoEstilo==Font.BOLD) {
 				
+				item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, InputEvent.CTRL_DOWN_MASK));
+				
 				item.addActionListener(new StyledEditorKit.BoldAction());
 			}else if(textoEstilo==Font.ITALIC) {
+				
+				item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_K, InputEvent.CTRL_DOWN_MASK));
 				
 				item.addActionListener(new StyledEditorKit.ItalicAction());
 			}
